@@ -24,5 +24,8 @@ Le projet est structuré comme suite :
 
 ![gantt_du_projet](docs/uml_files/diagramme_gantt_week.png)
 
+#### Vue sur l'année 
+
+![gantt_du_projet](docs/uml_files/diagramme_gantt.png)
 ### Système à Réaliser 
 ![state_charts](docs/uml_files/state_machine.png)
