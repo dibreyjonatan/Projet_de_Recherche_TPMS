@@ -35,8 +35,8 @@ Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
 .init                              7     R     0xC000     0xC006   ROM
 .rodata                          116     R     0xC007     0xC07A   ROM
-.rodata1                         129     R     0xC07B     0xC0FB   ROM
-.text                           2770     R     0xC0FC     0xCBCD   ROM
+.rodata1                         364     R     0xC07B     0xC1E6   ROM
+.text                           2909     R     0xC1E7     0xCD43   ROM
 .abs_section_dfe0                 32     R     0xDFE0     0xDFFF   .absSeg0
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg1
 .abs_section_1                     1   N/I        0x1        0x1   .absSeg2
@@ -179,7 +179,7 @@ Section Name                    Size  Type     From       To       Segment
 .stack                            48   R/W      0x110      0x13F   RAM
 
 Summary of section sizes per section type:
-READ_ONLY (R):         BEE (dec:     3054)
+READ_ONLY (R):         D64 (dec:     3428)
 READ_WRITE (R/W):       40 (dec:       64)
 NO_INIT (N/I):          8F (dec:      143)
 
@@ -194,58 +194,67 @@ OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 MODULE:                 -- Interrupts_c.obj --
 - PROCEDURES:
-     USER_1_INTERRUPT                          C0FC       1       1       1   .text       
-     USER_2_INTERRUPT                          C0FD       1       1       1   .text       
-     USER_3_INTERRUPT                          C0FE       1       1       1   .text       
-     USER_4_INTERRUPT                          C0FF       7       7       1   .text       
-     USER_5_INTERRUPT                          C106       1       1       1   .text       
-     USER_6_INTERRUPT                          C107       1       1       1   .text       
-     USER_7_INTERRUPT                          C108       1       1       1   .text       
-     USER_8_INTERRUPT                          C109       1       1       1   .text       
-     USER_9_INTERRUPT                          C10A       1       1       1   .text       
-     USER_10_INTERRUPT                         C10B       1       1       1   .text       
-     USER_11_INTERRUPT                         C10C       1       1       1   .text       
-     USER_12_INTERRUPT                         C10D       1       1       1   .text       
-     USER_13_INTERRUPT                         C10E       1       1       1   .text       
-     USER_14_INTERRUPT                         C10F       1       1       1   .text       
-     USER_15_INTERRUPT                         C110       1       1       1   .text       
+     USER_1_INTERRUPT                          C1E7       1       1       1   .text       
+     USER_2_INTERRUPT                          C1E8       1       1       1   .text       
+     USER_3_INTERRUPT                          C1E9       1       1       1   .text       
+     USER_4_INTERRUPT                          C1EA       7       7       1   .text       
+     USER_5_INTERRUPT                          C1F1       1       1       1   .text       
+     USER_6_INTERRUPT                          C1F2       1       1       1   .text       
+     USER_7_INTERRUPT                          C1F3       1       1       1   .text       
+     USER_8_INTERRUPT                          C1F4       1       1       1   .text       
+     USER_9_INTERRUPT                          C1F5       1       1       1   .text       
+     USER_10_INTERRUPT                         C1F6       1       1       1   .text       
+     USER_11_INTERRUPT                         C1F7       1       1       1   .text       
+     USER_12_INTERRUPT                         C1F8       1       1       1   .text       
+     USER_13_INTERRUPT                         C1F9       1       1       1   .text       
+     USER_14_INTERRUPT                         C1FA       1       1       1   .text       
+     USER_15_INTERRUPT                         C1FB       1       1       1   .text       
 - VARIABLES:
      USER_INTERRUPT_TABLE                      DFE0      20      32       0   .abs_section_dfe0
 MODULE:                 -- delay_c.obj --
 - PROCEDURES:
-     DelayMSec                                 C111      24      36       2   .text       
+     DelayMSec                                 C1FC      24      36       1   .text       
 - VARIABLES:
 MODULE:                 -- fxth87_c.obj --
 - PROCEDURES:
-     GetDeviceID                               C135      75     117       1   .text       
-     GetTyrePosition                           C1AA       6       6       1   .text       
-     GetVoltage                                C1B0      1D      29       1   .text       
-     GetTemperature                            C1CD      1D      29       1   .text       
-     GetPressure                               C1EA      1F      31       1   .text       
-     GetAccelerationX                          C209      27      39       1   .text       
-     GetAccelerationZ                          C230      27      39       1   .text       
+     GetDeviceID                               C220      75     117       1   .text       
+     GetTyrePosition                           C295       6       6       1   .text       
+     GetVoltage                                C29B      1D      29       1   .text       
+     GetTemperature                            C2B8      1D      29       1   .text       
+     GetPressure                               C2D5      1F      31       1   .text       
+     GetAccelerationX                          C2F4      27      39       1   .text       
+     GetAccelerationZ                          C31B      27      39       1   .text       
 - VARIABLES:
      gu16UUMA                                   100       A      10      10   .bss        
 MODULE:                 -- main_c.obj --
 - PROCEDURES:
-     main                                      C257      95     149       2   .text       
-     vfnSetupMCU                               C2EC       B      11       1   .text       
+     main                                      C342     120     288       3   .text       
+     vfnSetupMCU                               C462       B      11       1   .text       
 - VARIABLES:
      STRING.System.reboot...1                  C07B      10      16       1   .rodata1    
      STRING......................2             C08B      29      41       1   .rodata1    
      STRING.FXTH87xx.RF.TPMS.Dat.3             C0B4      1D      29       1   .rodata1    
-     STRING......................4             C0D1      2B      43       1   .rodata1    
+     STRING.Affichage.de.la.donn.4             C0D1      23      35       1   .rodata1    
+     STRING.ID....d...5                        C0F4       A      10       1   .rodata1    
+     STRING.Position.pneu....d...6             C0FE      15      21       1   .rodata1    
+     STRING.Pressure.comp.value..7             C113      1B      27       1   .rodata1    
+     STRING.Temperature.comp.val.8             C12E      1E      30       1   .rodata1    
+     STRING.Voltage.comp.value...9             C14C      1A      26       1   .rodata1    
+     STRING.Acceleration.X.comp..10            C166      21      33       1   .rodata1    
+     STRING.Acceleration.Z.comp..11            C187      21      33       1   .rodata1    
+     STRING.CRC.calculee....d...12             C1A8      14      20       1   .rodata1    
+     STRING......................13            C1BC      2B      43       1   .rodata1    
 MODULE:                 -- printf_c.obj --
 - PROCEDURES:
-     PrintfInit                                C2F7       7       7       1   .text       
-     PrintfChar                                C2FE      2A      42       1   .text       
-     UartDelayABit                             C328      1C      28       3   .text       
-     TERMIO_PutChar                            C344       2       2       1   .text       
+     PrintfInit                                C46D       7       7       1   .text       
+     PrintfChar                                C474      2A      42       1   .text       
+     UartDelayABit                             C49E      1C      28       3   .text       
+     TERMIO_PutChar                            C4BA       2       2       1   .text       
 - VARIABLES:
 MODULE:                 -- rf_c.obj --
 - PROCEDURES:
-     RfInit                                    C346      28      40       1   .text       
-     RfSendMeg                                 C36E      46      70       1   .text       
+     RfInit                                    C4BC      28      40       1   .text       
+     RfSendMeg                                 C4E4      46      70       1   .text       
 - VARIABLES:
 MODULE:                 -- start08_c.obj --
 - PROCEDURES:
@@ -395,13 +404,13 @@ MODULE:                 -- FXTH870000_c.obj --
      _SDID                                     1806       2       2       0   .abs_section_1806
 MODULE:                 -- embedded.o (ansiis.lib) --
 - PROCEDURES:
-     printf                                    C3B4      1C      28       4   .text       
+     printf                                    C52A      1C      28      13   .text       
 - VARIABLES:
 MODULE:                 -- printf.o (ansiis.lib) --
 - PROCEDURES:
-     vprintf                                   C3D0     60B    1547      39   .text       
-     _out                                      C9DB       D      13       9   .text       
-     set_printf                                C9E8       C      12       1   .text       
+     vprintf                                   C546     60B    1547      39   .text       
+     _out                                      CB51       D      13       9   .text       
+     set_printf                                CB5E       C      12       1   .text       
 - VARIABLES:
      pow10                                     C007      28      40       4   .rodata     
      pow16                                     C02F      20      32       4   .rodata     
@@ -409,24 +418,24 @@ MODULE:                 -- printf.o (ansiis.lib) --
      pbuf                                       10A       6       6      11   .bss        
 MODULE:                 -- rtshc08.o (ansiis.lib) --
 - PROCEDURES:
-     _PUSH_ARGS_L                              C9F4      20      32       1   .text       
-     _ENTER_UNARY_L                            CA14      29      41       2   .text       
-     _ENTER_BINARY_L                           CA3D      16      22       3   .text       
-     _LSUB_k_is_k_minus_j                      CA53      1F      31       1   .text       
-     _LOR_k_is_k_or_j                          CA72      1F      31       1   .text       
-     _LCMP_k_rel_j                             CA91      1F      31       1   .text       
-     _IMUL_STAR08                              CAB0      27      39       2   .text       
-     _LNEG                                     CAD7      1C      28       1   .text       
-     _LSUB                                     CAF3       6       6       1   .text       
-     _LOR                                      CAF9       6       6       4   .text       
-     _LLSL                                     CAFF      16      22       3   .text       
-     _LCMP                                     CB15       6       6       4   .text       
-     _COPY                                     CB1B      30      48       2   .text       
-     _POP32                                    CB4B      1A      26       8   .text       
-     _SEXT16_32                                CB65       D      13       2   .text       
-     _Jump_Table_Addr                          CB72      16      22       1   .text       
-     _Search_Table_8_Addr                      CB88      21      33       1   .text       
-     _Search_Table_8_Offset                    CBA9      25      37       1   .text       
+     _PUSH_ARGS_L                              CB6A      20      32       1   .text       
+     _ENTER_UNARY_L                            CB8A      29      41       2   .text       
+     _ENTER_BINARY_L                           CBB3      16      22       3   .text       
+     _LSUB_k_is_k_minus_j                      CBC9      1F      31       1   .text       
+     _LOR_k_is_k_or_j                          CBE8      1F      31       1   .text       
+     _LCMP_k_rel_j                             CC07      1F      31       1   .text       
+     _IMUL_STAR08                              CC26      27      39       2   .text       
+     _LNEG                                     CC4D      1C      28       1   .text       
+     _LSUB                                     CC69       6       6       1   .text       
+     _LOR                                      CC6F       6       6       4   .text       
+     _LLSL                                     CC75      16      22       3   .text       
+     _LCMP                                     CC8B       6       6       4   .text       
+     _COPY                                     CC91      30      48       2   .text       
+     _POP32                                    CCC1      1A      26       8   .text       
+     _SEXT16_32                                CCDB       D      13       2   .text       
+     _Jump_Table_Addr                          CCE8      16      22       1   .text       
+     _Search_Table_8_Addr                      CCFE      21      33       1   .text       
+     _Search_Table_8_Offset                    CD1F      25      37       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
@@ -436,7 +445,7 @@ MODULE STATISTIC
   Interrupts_c.obj                             0     21     32
   delay_c.obj                                  0     36      0
   fxth87_c.obj                                10    290      0
-  main_c.obj                                   0    160    129
+  main_c.obj                                   0    299    364
   printf_c.obj                                 0     79      0
   rf_c.obj                                     0    110      0
   start08_c.obj                                0      7      0
@@ -468,7 +477,12 @@ SECTION: ".rodata"
   pow10 pow16 pow8 
 SECTION: ".rodata1"
   STRING.System.reboot...1 STRING......................2 
-  STRING.FXTH87xx.RF.TPMS.Dat.3 STRING......................4 
+  STRING.FXTH87xx.RF.TPMS.Dat.3 STRING.Affichage.de.la.donn.4 
+  STRING.ID....d...5 STRING.Position.pneu....d...6 
+  STRING.Pressure.comp.value..7 STRING.Temperature.comp.val.8 
+  STRING.Voltage.comp.value...9 STRING.Acceleration.X.comp..10 
+  STRING.Acceleration.Z.comp..11 STRING.CRC.calculee....d...12 
+  STRING......................13 
 SECTION: ".abs_section_dfe0"
   USER_INTERRUPT_TABLE 
 SECTION: ".abs_section_0"
@@ -896,60 +910,69 @@ OBJECT LIST SORTED BY ADDRESS
      STRING.System.reboot...1                  C07B      10      16       1   .rodata1    
      STRING......................2             C08B      29      41       1   .rodata1    
      STRING.FXTH87xx.RF.TPMS.Dat.3             C0B4      1D      29       1   .rodata1    
-     STRING......................4             C0D1      2B      43       1   .rodata1    
-     USER_1_INTERRUPT                          C0FC       1       1       1   .text       
-     USER_2_INTERRUPT                          C0FD       1       1       1   .text       
-     USER_3_INTERRUPT                          C0FE       1       1       1   .text       
-     USER_4_INTERRUPT                          C0FF       7       7       1   .text       
-     USER_5_INTERRUPT                          C106       1       1       1   .text       
-     USER_6_INTERRUPT                          C107       1       1       1   .text       
-     USER_7_INTERRUPT                          C108       1       1       1   .text       
-     USER_8_INTERRUPT                          C109       1       1       1   .text       
-     USER_9_INTERRUPT                          C10A       1       1       1   .text       
-     USER_10_INTERRUPT                         C10B       1       1       1   .text       
-     USER_11_INTERRUPT                         C10C       1       1       1   .text       
-     USER_12_INTERRUPT                         C10D       1       1       1   .text       
-     USER_13_INTERRUPT                         C10E       1       1       1   .text       
-     USER_14_INTERRUPT                         C10F       1       1       1   .text       
-     USER_15_INTERRUPT                         C110       1       1       1   .text       
-     DelayMSec                                 C111      24      36       2   .text       
-     GetDeviceID                               C135      75     117       1   .text       
-     GetTyrePosition                           C1AA       6       6       1   .text       
-     GetVoltage                                C1B0      1D      29       1   .text       
-     GetTemperature                            C1CD      1D      29       1   .text       
-     GetPressure                               C1EA      1F      31       1   .text       
-     GetAccelerationX                          C209      27      39       1   .text       
-     GetAccelerationZ                          C230      27      39       1   .text       
-     main                                      C257      95     149       2   .text       
-     vfnSetupMCU                               C2EC       B      11       1   .text       
-     PrintfInit                                C2F7       7       7       1   .text       
-     PrintfChar                                C2FE      2A      42       1   .text       
-     UartDelayABit                             C328      1C      28       3   .text       
-     TERMIO_PutChar                            C344       2       2       1   .text       
-     RfInit                                    C346      28      40       1   .text       
-     RfSendMeg                                 C36E      46      70       1   .text       
-     printf                                    C3B4      1C      28       4   .text       
-     vprintf                                   C3D0     60B    1547      39   .text       
-     _out                                      C9DB       D      13       9   .text       
-     set_printf                                C9E8       C      12       1   .text       
-     _PUSH_ARGS_L                              C9F4      20      32       1   .text       
-     _ENTER_UNARY_L                            CA14      29      41       2   .text       
-     _ENTER_BINARY_L                           CA3D      16      22       3   .text       
-     _LSUB_k_is_k_minus_j                      CA53      1F      31       1   .text       
-     _LOR_k_is_k_or_j                          CA72      1F      31       1   .text       
-     _LCMP_k_rel_j                             CA91      1F      31       1   .text       
-     _IMUL_STAR08                              CAB0      27      39       2   .text       
-     _LNEG                                     CAD7      1C      28       1   .text       
-     _LSUB                                     CAF3       6       6       1   .text       
-     _LOR                                      CAF9       6       6       4   .text       
-     _LLSL                                     CAFF      16      22       3   .text       
-     _LCMP                                     CB15       6       6       4   .text       
-     _COPY                                     CB1B      30      48       2   .text       
-     _POP32                                    CB4B      1A      26       8   .text       
-     _SEXT16_32                                CB65       D      13       2   .text       
-     _Jump_Table_Addr                          CB72      16      22       1   .text       
-     _Search_Table_8_Addr                      CB88      21      33       1   .text       
-     _Search_Table_8_Offset                    CBA9      25      37       1   .text       
+     STRING.Affichage.de.la.donn.4             C0D1      23      35       1   .rodata1    
+     STRING.ID....d...5                        C0F4       A      10       1   .rodata1    
+     STRING.Position.pneu....d...6             C0FE      15      21       1   .rodata1    
+     STRING.Pressure.comp.value..7             C113      1B      27       1   .rodata1    
+     STRING.Temperature.comp.val.8             C12E      1E      30       1   .rodata1    
+     STRING.Voltage.comp.value...9             C14C      1A      26       1   .rodata1    
+     STRING.Acceleration.X.comp..10            C166      21      33       1   .rodata1    
+     STRING.Acceleration.Z.comp..11            C187      21      33       1   .rodata1    
+     STRING.CRC.calculee....d...12             C1A8      14      20       1   .rodata1    
+     STRING......................13            C1BC      2B      43       1   .rodata1    
+     USER_1_INTERRUPT                          C1E7       1       1       1   .text       
+     USER_2_INTERRUPT                          C1E8       1       1       1   .text       
+     USER_3_INTERRUPT                          C1E9       1       1       1   .text       
+     USER_4_INTERRUPT                          C1EA       7       7       1   .text       
+     USER_5_INTERRUPT                          C1F1       1       1       1   .text       
+     USER_6_INTERRUPT                          C1F2       1       1       1   .text       
+     USER_7_INTERRUPT                          C1F3       1       1       1   .text       
+     USER_8_INTERRUPT                          C1F4       1       1       1   .text       
+     USER_9_INTERRUPT                          C1F5       1       1       1   .text       
+     USER_10_INTERRUPT                         C1F6       1       1       1   .text       
+     USER_11_INTERRUPT                         C1F7       1       1       1   .text       
+     USER_12_INTERRUPT                         C1F8       1       1       1   .text       
+     USER_13_INTERRUPT                         C1F9       1       1       1   .text       
+     USER_14_INTERRUPT                         C1FA       1       1       1   .text       
+     USER_15_INTERRUPT                         C1FB       1       1       1   .text       
+     DelayMSec                                 C1FC      24      36       1   .text       
+     GetDeviceID                               C220      75     117       1   .text       
+     GetTyrePosition                           C295       6       6       1   .text       
+     GetVoltage                                C29B      1D      29       1   .text       
+     GetTemperature                            C2B8      1D      29       1   .text       
+     GetPressure                               C2D5      1F      31       1   .text       
+     GetAccelerationX                          C2F4      27      39       1   .text       
+     GetAccelerationZ                          C31B      27      39       1   .text       
+     main                                      C342     120     288       3   .text       
+     vfnSetupMCU                               C462       B      11       1   .text       
+     PrintfInit                                C46D       7       7       1   .text       
+     PrintfChar                                C474      2A      42       1   .text       
+     UartDelayABit                             C49E      1C      28       3   .text       
+     TERMIO_PutChar                            C4BA       2       2       1   .text       
+     RfInit                                    C4BC      28      40       1   .text       
+     RfSendMeg                                 C4E4      46      70       1   .text       
+     printf                                    C52A      1C      28      13   .text       
+     vprintf                                   C546     60B    1547      39   .text       
+     _out                                      CB51       D      13       9   .text       
+     set_printf                                CB5E       C      12       1   .text       
+     _PUSH_ARGS_L                              CB6A      20      32       1   .text       
+     _ENTER_UNARY_L                            CB8A      29      41       2   .text       
+     _ENTER_BINARY_L                           CBB3      16      22       3   .text       
+     _LSUB_k_is_k_minus_j                      CBC9      1F      31       1   .text       
+     _LOR_k_is_k_or_j                          CBE8      1F      31       1   .text       
+     _LCMP_k_rel_j                             CC07      1F      31       1   .text       
+     _IMUL_STAR08                              CC26      27      39       2   .text       
+     _LNEG                                     CC4D      1C      28       1   .text       
+     _LSUB                                     CC69       6       6       1   .text       
+     _LOR                                      CC6F       6       6       4   .text       
+     _LLSL                                     CC75      16      22       3   .text       
+     _LCMP                                     CC8B       6       6       4   .text       
+     _COPY                                     CC91      30      48       2   .text       
+     _POP32                                    CCC1      1A      26       8   .text       
+     _SEXT16_32                                CCDB       D      13       2   .text       
+     _Jump_Table_Addr                          CCE8      16      22       1   .text       
+     _Search_Table_8_Addr                      CCFE      21      33       1   .text       
+     _Search_Table_8_Offset                    CD1F      25      37       1   .text       
      USER_INTERRUPT_TABLE                      DFE0      20      32       0   .abs_section_dfe0
 
 *********************************************************************************************
@@ -1006,7 +1029,12 @@ main                      USES vfnSetupMCU PrintfInit STRING.System.reboot...1
                                 printf RfInit _SRS STRING......................2 
                                 STRING.FXTH87xx.RF.TPMS.Dat.3 GetDeviceID GetTyrePosition GetPressure 
                                 GetTemperature GetVoltage GetAccelerationX GetAccelerationZ 
-                                RfSendMeg STRING......................4 DelayMSec 
+                                RfSendMeg STRING.Affichage.de.la.donn.4 
+                                STRING.ID....d...5 STRING.Position.pneu....d...6 
+                                STRING.Pressure.comp.value..7 STRING.Temperature.comp.val.8 
+                                STRING.Voltage.comp.value...9 STRING.Acceleration.X.comp..10 
+                                STRING.Acceleration.Z.comp..11 STRING.CRC.calculee....d...12 
+                                STRING......................13 main DelayMSec 
 vfnSetupMCU               USES _SPMSC1 _SIMOPT1 
 PrintfInit                USES _PTADD _PTAD 
 PrintfChar                USES _PTAD UartDelayABit 
@@ -1168,6 +1196,6 @@ STATISTIC SECTION
 
 ExeFile:
 --------
-Number of blocks to be downloaded: 4
-Total size of all blocks to be downloaded: 3054
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 3428
 

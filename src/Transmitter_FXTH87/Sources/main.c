@@ -41,15 +41,25 @@ void main(void)
     tFxth87Data.CRC = TPMS_CRC8((UINT8 *)&tFxth87Data,sizeof(tFxth87Data)-1,0xAA);
     
     RfSendMeg((UINT8 *)&tFxth87Data);
-
+    
+    (void)printf("Affichage de la donnee transmise\r\n");
+    (void)printf("ID : %d\r\n",tFxth87Data.DeviceID );
+    (void)printf("Position pneu : %d\r\n",tFxth87Data.TyrePos);
+    (void)printf("Pressure comp value : %d\r\n",tFxth87Data.Pressure);
+    (void)printf("Temperature comp value : %d\r\n",tFxth87Data.Temperature);
+    (void)printf("Voltage comp value : %d\r\n",tFxth87Data.Voltage);
+    (void)printf("Acceleration X comp value : %d\r\n",tFxth87Data.AccelerationX);
+    (void)printf("Acceleration Z comp value : %d\r\n",tFxth87Data.AccelerationZ);
+    (void)printf("CRC calculee : %d\r\n",tFxth87Data.CRC);
+    
     (void)printf("**************************************\r\n\r\n");
-
+    // attente de 1s
     DelayMSec(250);
     DelayMSec(250);
     DelayMSec(250);
     DelayMSec(250);
     DelayMSec(250);
-    DelayMSec(250);
+   
   } /* loop forever */
 }
 
