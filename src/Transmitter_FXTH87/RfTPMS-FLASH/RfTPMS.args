@@ -1,0 +1,16 @@
+"$(ProjDirPath)/Project_Settings/Linker_Files/Project.prm"
+-M
+-ViewHidden
+-WmsgFob"%f%e:%l:%k:%d %m\n"
+-WmsgSd1100
+-WmsgSd1912
+-WmsgSd1107 
+-Add("$(SOURCES1)/Interrupts_c.obj"
+"$(SOURCES1)/delay_c.obj"
+"$(SOURCES1)/fxth87_c.obj"
+"$(SOURCES1)/main_c.obj"
+"$(SOURCES1)/printf_c.obj"
+"$(SOURCES1)/rf_c.obj"
+"$(STARTUP_CODE)/start08_c.obj"
+"$(LIB)/FXTH870000_c.obj"
+"$(MCUToolsBaseDirEnv)/lib/hc08c/lib/ansiis.lib" )
