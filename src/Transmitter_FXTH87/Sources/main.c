@@ -10,7 +10,8 @@
 #include "fxth87.h"
 
 #include <stdio.h>
-#include <assert.h>
+
+void bug_loop(int Line);
 
 void main(void) 
 {
@@ -19,7 +20,19 @@ void main(void)
 
   vfnSetupMCU();
   EnableInterrupts;
-
+  /* 
+   *  Ce code commenter était pour tester le clignotement des deuc leds PA0 et PA1 et ca marche bien
+   *  Ceci permet donc de valider la fonction bug que nous voulons implementer.
+   PTAPE |= 0x03;
+   PTADD |= 0x03;
+  
+  for(u8Res = 0; u8Res < 100 ;u8Res ++){
+	  PTAD &= ~(3<<0);
+	  DelayMSec(250);
+	  PTAD |= (3<<0);
+	  DelayMSec(250);
+  }
+  */
   PrintfInit();
   (void)printf("System reboot\r\n");
 
@@ -30,29 +43,20 @@ void main(void)
     __RESET_WATCHDOG();
     
     (void)printf("**************************************\r\n");
-    (void)printf("FXTH87xx RF TPMS Data Test\r\n");
+    (void)printf("FXTH87xx RF TPMS Data Test \r\n");
 
     u8Res = GetDeviceID(&tFxth87Data.DeviceID);
-    assert(u8Res!=0);
-    u8Res=0 ;
     u8Res = GetTyrePosition(&tFxth87Data.TyrePos);
-    assert(u8Res!=0);
-    u8Res=0 ;
     u8Res = GetPressure(&tFxth87Data.Pressure);
-    assert(u8Res!=0);
-    u8Res=0 ;
+    if (u8Res==0) bug_loop(__LINE__);
     u8Res = GetTemperature(&tFxth87Data.Temperature);  
-    assert(u8Res!=0);
-    u8Res=0 ;
+    if (u8Res!=0) bug_loop(__LINE__); // uRes ==0 means T measurement successful
     u8Res = GetVoltage(&tFxth87Data.Voltage);
-    assert(u8Res!=0);
-    u8Res=0 ;
+    if (u8Res!=0) bug_loop(__LINE__); // uRes ==0 means V measurement successful
     u8Res = GetAccelerationX(&tFxth87Data.AccelerationX);
-    assert(u8Res!=0);
-    u8Res=0 ;
+    if (u8Res!=0) bug_loop(__LINE__); // uRes ==0 means Ax measurement successful
     u8Res = GetAccelerationZ(&tFxth87Data.AccelerationZ);
-    assert(u8Res!=0);
-    u8Res=0 ;
+    if (u8Res!=0) bug_loop(__LINE__); // uRes ==0 means Az measurement successful
     tFxth87Data.CRC = TPMS_CRC8((UINT8 *)&tFxth87Data,sizeof(tFxth87Data)-1,0xAA);
     
     RfSendMeg((UINT8 *)&tFxth87Data);
@@ -96,5 +100,17 @@ void vfnSetupMCU(void)
             & (~((UINT8)SIMOPT1_COPE_MASK)));
 }
 
+void bug_loop(int Line){
+	
+	(void)printf(" Bug occured at Line N : %d\r\n", Line);
+	 PTAPE |= 0x03;
+	 PTADD |= 0x03;
+	while(1){
+		 PTAD &= ~(3<<0);
+		 DelayMSec(250);
+		 PTAD |= (3<<0);	
+		 DelayMSec(250);
+	}
+}
 
 

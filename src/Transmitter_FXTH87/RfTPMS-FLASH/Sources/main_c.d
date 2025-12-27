@@ -17,7 +17,5 @@ Sources/main_c.obj: \
 	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/stdarg.h \
 	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/string.h \
 	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/libdefs.h \
-	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/errno.h \
-	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/assert.h \
-	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/stdlib.h 
+	C:/Freescale/CW\ MCU\ v11.1/MCU/lib/hc08c/include/errno.h 
 
