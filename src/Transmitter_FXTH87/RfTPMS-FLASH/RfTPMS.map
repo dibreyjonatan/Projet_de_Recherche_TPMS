@@ -36,7 +36,7 @@ Section Name                    Size  Type     From       To       Segment
 .init                              7     R     0xC000     0xC006   ROM
 .rodata                          116     R     0xC007     0xC07A   ROM
 .rodata1                         395     R     0xC07B     0xC205   ROM
-.text                           3002     R     0xC206     0xCDBF   ROM
+.text                           2995     R     0xC206     0xCDB8   ROM
 .abs_section_dfe0                 32     R     0xDFE0     0xDFFF   .absSeg0
 .abs_section_0                     1   N/I        0x0        0x0   .absSeg1
 .abs_section_1                     1   N/I        0x1        0x1   .absSeg2
@@ -179,7 +179,7 @@ Section Name                    Size  Type     From       To       Segment
 .stack                            48   R/W      0x110      0x13F   RAM
 
 Summary of section sizes per section type:
-READ_ONLY (R):         DE0 (dec:     3552)
+READ_ONLY (R):         DD9 (dec:     3545)
 READ_WRITE (R/W):       40 (dec:       64)
 NO_INIT (N/I):          8F (dec:      143)
 
@@ -228,9 +228,9 @@ MODULE:                 -- fxth87_c.obj --
      gu16UUMA                                   100       A      10      10   .bss        
 MODULE:                 -- main_c.obj --
 - PROCEDURES:
-     main                                      C361     14D     333       3   .text       
-     vfnSetupMCU                               C4AE       B      11       1   .text       
-     bug_loop                                  C4B9      30      48       5   .text       
+     main                                      C361     146     326       3   .text       
+     vfnSetupMCU                               C4A7       B      11       1   .text       
+     bug_loop                                  C4B2      30      48       4   .text       
 - VARIABLES:
      STRING.System.reboot...1                  C07B      10      16       1   .rodata1    
      STRING......................2             C08B      29      41       1   .rodata1    
@@ -248,15 +248,15 @@ MODULE:                 -- main_c.obj --
      STRING..Bug.occured.at.Line.14            C1E8      1E      30       1   .rodata1    
 MODULE:                 -- printf_c.obj --
 - PROCEDURES:
-     PrintfInit                                C4E9       7       7       1   .text       
-     PrintfChar                                C4F0      2A      42       1   .text       
-     UartDelayABit                             C51A      1C      28       3   .text       
-     TERMIO_PutChar                            C536       2       2       1   .text       
+     PrintfInit                                C4E2       7       7       1   .text       
+     PrintfChar                                C4E9      2A      42       1   .text       
+     UartDelayABit                             C513      1C      28       3   .text       
+     TERMIO_PutChar                            C52F       2       2       1   .text       
 - VARIABLES:
 MODULE:                 -- rf_c.obj --
 - PROCEDURES:
-     RfInit                                    C538      28      40       1   .text       
-     RfSendMeg                                 C560      46      70       1   .text       
+     RfInit                                    C531      28      40       1   .text       
+     RfSendMeg                                 C559      46      70       1   .text       
 - VARIABLES:
 MODULE:                 -- start08_c.obj --
 - PROCEDURES:
@@ -406,13 +406,13 @@ MODULE:                 -- FXTH870000_c.obj --
      _SDID                                     1806       2       2       0   .abs_section_1806
 MODULE:                 -- embedded.o (ansiis.lib) --
 - PROCEDURES:
-     printf                                    C5A6      1C      28      14   .text       
+     printf                                    C59F      1C      28      14   .text       
 - VARIABLES:
 MODULE:                 -- printf.o (ansiis.lib) --
 - PROCEDURES:
-     vprintf                                   C5C2     60B    1547      39   .text       
-     _out                                      CBCD       D      13       9   .text       
-     set_printf                                CBDA       C      12       1   .text       
+     vprintf                                   C5BB     60B    1547      39   .text       
+     _out                                      CBC6       D      13       9   .text       
+     set_printf                                CBD3       C      12       1   .text       
 - VARIABLES:
      pow10                                     C007      28      40       4   .rodata     
      pow16                                     C02F      20      32       4   .rodata     
@@ -420,24 +420,24 @@ MODULE:                 -- printf.o (ansiis.lib) --
      pbuf                                       10A       6       6      11   .bss        
 MODULE:                 -- rtshc08.o (ansiis.lib) --
 - PROCEDURES:
-     _PUSH_ARGS_L                              CBE6      20      32       1   .text       
-     _ENTER_UNARY_L                            CC06      29      41       2   .text       
-     _ENTER_BINARY_L                           CC2F      16      22       3   .text       
-     _LSUB_k_is_k_minus_j                      CC45      1F      31       1   .text       
-     _LOR_k_is_k_or_j                          CC64      1F      31       1   .text       
-     _LCMP_k_rel_j                             CC83      1F      31       1   .text       
-     _IMUL_STAR08                              CCA2      27      39       2   .text       
-     _LNEG                                     CCC9      1C      28       1   .text       
-     _LSUB                                     CCE5       6       6       1   .text       
-     _LOR                                      CCEB       6       6       4   .text       
-     _LLSL                                     CCF1      16      22       3   .text       
-     _LCMP                                     CD07       6       6       4   .text       
-     _COPY                                     CD0D      30      48       2   .text       
-     _POP32                                    CD3D      1A      26       8   .text       
-     _SEXT16_32                                CD57       D      13       2   .text       
-     _Jump_Table_Addr                          CD64      16      22       1   .text       
-     _Search_Table_8_Addr                      CD7A      21      33       1   .text       
-     _Search_Table_8_Offset                    CD9B      25      37       1   .text       
+     _PUSH_ARGS_L                              CBDF      20      32       1   .text       
+     _ENTER_UNARY_L                            CBFF      29      41       2   .text       
+     _ENTER_BINARY_L                           CC28      16      22       3   .text       
+     _LSUB_k_is_k_minus_j                      CC3E      1F      31       1   .text       
+     _LOR_k_is_k_or_j                          CC5D      1F      31       1   .text       
+     _LCMP_k_rel_j                             CC7C      1F      31       1   .text       
+     _IMUL_STAR08                              CC9B      27      39       2   .text       
+     _LNEG                                     CCC2      1C      28       1   .text       
+     _LSUB                                     CCDE       6       6       1   .text       
+     _LOR                                      CCE4       6       6       4   .text       
+     _LLSL                                     CCEA      16      22       3   .text       
+     _LCMP                                     CD00       6       6       4   .text       
+     _COPY                                     CD06      30      48       2   .text       
+     _POP32                                    CD36      1A      26       8   .text       
+     _SEXT16_32                                CD50       D      13       2   .text       
+     _Jump_Table_Addr                          CD5D      16      22       1   .text       
+     _Search_Table_8_Addr                      CD73      21      33       1   .text       
+     _Search_Table_8_Offset                    CD94      25      37       1   .text       
 - VARIABLES:
 
 *********************************************************************************************
@@ -447,7 +447,7 @@ MODULE STATISTIC
   Interrupts_c.obj                             0     21     32
   delay_c.obj                                  0     36      0
   fxth87_c.obj                                10    290      0
-  main_c.obj                                   0    392    395
+  main_c.obj                                   0    385    395
   printf_c.obj                                 0     79      0
   rf_c.obj                                     0    110      0
   start08_c.obj                                0      7      0
@@ -947,37 +947,37 @@ OBJECT LIST SORTED BY ADDRESS
      GetPressure                               C2F4      1F      31       1   .text       
      GetAccelerationX                          C313      27      39       1   .text       
      GetAccelerationZ                          C33A      27      39       1   .text       
-     main                                      C361     14D     333       3   .text       
-     vfnSetupMCU                               C4AE       B      11       1   .text       
-     bug_loop                                  C4B9      30      48       5   .text       
-     PrintfInit                                C4E9       7       7       1   .text       
-     PrintfChar                                C4F0      2A      42       1   .text       
-     UartDelayABit                             C51A      1C      28       3   .text       
-     TERMIO_PutChar                            C536       2       2       1   .text       
-     RfInit                                    C538      28      40       1   .text       
-     RfSendMeg                                 C560      46      70       1   .text       
-     printf                                    C5A6      1C      28      14   .text       
-     vprintf                                   C5C2     60B    1547      39   .text       
-     _out                                      CBCD       D      13       9   .text       
-     set_printf                                CBDA       C      12       1   .text       
-     _PUSH_ARGS_L                              CBE6      20      32       1   .text       
-     _ENTER_UNARY_L                            CC06      29      41       2   .text       
-     _ENTER_BINARY_L                           CC2F      16      22       3   .text       
-     _LSUB_k_is_k_minus_j                      CC45      1F      31       1   .text       
-     _LOR_k_is_k_or_j                          CC64      1F      31       1   .text       
-     _LCMP_k_rel_j                             CC83      1F      31       1   .text       
-     _IMUL_STAR08                              CCA2      27      39       2   .text       
-     _LNEG                                     CCC9      1C      28       1   .text       
-     _LSUB                                     CCE5       6       6       1   .text       
-     _LOR                                      CCEB       6       6       4   .text       
-     _LLSL                                     CCF1      16      22       3   .text       
-     _LCMP                                     CD07       6       6       4   .text       
-     _COPY                                     CD0D      30      48       2   .text       
-     _POP32                                    CD3D      1A      26       8   .text       
-     _SEXT16_32                                CD57       D      13       2   .text       
-     _Jump_Table_Addr                          CD64      16      22       1   .text       
-     _Search_Table_8_Addr                      CD7A      21      33       1   .text       
-     _Search_Table_8_Offset                    CD9B      25      37       1   .text       
+     main                                      C361     146     326       3   .text       
+     vfnSetupMCU                               C4A7       B      11       1   .text       
+     bug_loop                                  C4B2      30      48       4   .text       
+     PrintfInit                                C4E2       7       7       1   .text       
+     PrintfChar                                C4E9      2A      42       1   .text       
+     UartDelayABit                             C513      1C      28       3   .text       
+     TERMIO_PutChar                            C52F       2       2       1   .text       
+     RfInit                                    C531      28      40       1   .text       
+     RfSendMeg                                 C559      46      70       1   .text       
+     printf                                    C59F      1C      28      14   .text       
+     vprintf                                   C5BB     60B    1547      39   .text       
+     _out                                      CBC6       D      13       9   .text       
+     set_printf                                CBD3       C      12       1   .text       
+     _PUSH_ARGS_L                              CBDF      20      32       1   .text       
+     _ENTER_UNARY_L                            CBFF      29      41       2   .text       
+     _ENTER_BINARY_L                           CC28      16      22       3   .text       
+     _LSUB_k_is_k_minus_j                      CC3E      1F      31       1   .text       
+     _LOR_k_is_k_or_j                          CC5D      1F      31       1   .text       
+     _LCMP_k_rel_j                             CC7C      1F      31       1   .text       
+     _IMUL_STAR08                              CC9B      27      39       2   .text       
+     _LNEG                                     CCC2      1C      28       1   .text       
+     _LSUB                                     CCDE       6       6       1   .text       
+     _LOR                                      CCE4       6       6       4   .text       
+     _LLSL                                     CCEA      16      22       3   .text       
+     _LCMP                                     CD00       6       6       4   .text       
+     _COPY                                     CD06      30      48       2   .text       
+     _POP32                                    CD36      1A      26       8   .text       
+     _SEXT16_32                                CD50       D      13       2   .text       
+     _Jump_Table_Addr                          CD5D      16      22       1   .text       
+     _Search_Table_8_Addr                      CD73      21      33       1   .text       
+     _Search_Table_8_Offset                    CD94      25      37       1   .text       
      USER_INTERRUPT_TABLE                      DFE0      20      32       0   .abs_section_dfe0
 
 *********************************************************************************************
@@ -1033,13 +1033,13 @@ GetAccelerationZ          USES gu16UUMA
 main                      USES vfnSetupMCU PrintfInit STRING.System.reboot...1 
                                 printf RfInit _SRS STRING......................2 
                                 STRING.FXTH87xx.RF.TPMS.Dat.3 GetDeviceID GetTyrePosition GetPressure 
-                                bug_loop GetTemperature GetVoltage GetAccelerationX 
+                                GetTemperature bug_loop GetVoltage GetAccelerationX 
                                 GetAccelerationZ RfSendMeg STRING.Affichage.de.la.donn.4 
                                 STRING.ID....d...5 STRING.Position.pneu....d...6 
                                 STRING.Pressure.comp.value..7 STRING.Temperature.comp.val.8 
                                 STRING.Voltage.comp.value...9 STRING.Acceleration.X.comp..10 
                                 STRING.Acceleration.Z.comp..11 STRING.CRC.calculee....d...12 
-                                STRING......................13 main DelayMSec 
+                                STRING......................13 DelayMSec main 
 vfnSetupMCU               USES _SPMSC1 _SIMOPT1 
 bug_loop                  USES STRING..Bug.occured.at.Line.14 printf _PTAPE 
                                 _PTADD _PTAD DelayMSec 
@@ -1147,14 +1147,14 @@ DEPENDENCY TREE
  |  |    
  |  +- GetPressure         
  |  |    
+ |  +- GetTemperature      
+ |  |    
  |  +- bug_loop            
  |  |  | 
  |  |  +- printf               (see above)
  |  |  |  
  |  |  +- DelayMSec           
  |  |       
- |  +- GetTemperature      
- |  |    
  |  +- GetVoltage          
  |  |    
  |  +- GetAccelerationX    
@@ -1210,5 +1210,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 4
-Total size of all blocks to be downloaded: 3552
+Total size of all blocks to be downloaded: 3545
 

@@ -48,7 +48,7 @@ void main(void)
     u8Res = GetDeviceID(&tFxth87Data.DeviceID);
     u8Res = GetTyrePosition(&tFxth87Data.TyrePos);
     u8Res = GetPressure(&tFxth87Data.Pressure);
-    if (u8Res==0) bug_loop(__LINE__);
+   // if (u8Res==0) bug_loop(__LINE__); commented since it caused a bug, the response of u8Res can be 0 or not and not show an error measurement 
     u8Res = GetTemperature(&tFxth87Data.Temperature);  
     if (u8Res!=0) bug_loop(__LINE__); // uRes ==0 means T measurement successful
     u8Res = GetVoltage(&tFxth87Data.Voltage);
@@ -73,11 +73,15 @@ void main(void)
     
     (void)printf("**************************************\r\n\r\n");
     // attente de 1s
+   /* DelayMSec(250);
     DelayMSec(250);
     DelayMSec(250);
     DelayMSec(250);
-    DelayMSec(250);
-    DelayMSec(250);
+    DelayMSec(250);*/
+    // on fait la mésure toutes les 10 secondes 
+    
+    for(u8Res=0 ; u8Res < 40 ; u8Res++)
+    	DelayMSec(250) ; 
    
   } /* loop forever */
 }
